@@ -34,13 +34,11 @@ async function removeContact(contactId) {
     );
     let msg = 'contact not found';
     if (!indexRemove) {
-      console.log(msg);
       return msg;
     } else {
       msg = `Your contact ${contacts[indexRemove].name} has been deleted`;
       contacts.splice(indexRemove, 1);
       await fs.writeFile(contactsPath, JSON.stringify(contacts));
-      console.log(msg);
       return msg;
     }
   } catch (err) {
